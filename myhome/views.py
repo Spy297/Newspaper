@@ -52,9 +52,9 @@ def business(request):
     return render(request,"pages/business.html",{"business_posts":business_posts})
 
 
-def entertainment(request):
-    entertainment_posts = get_category_news("entertainment")
-    return render(request,"pages/entertainment.html",{"entertainment_posts":entertainment_posts})
+# def entertainment(request):
+#     entertainment_posts = get_category_news("entertainment")
+#     return render(request,"pages/entertainment.html",{"entertainment_posts":entertainment_posts})
 
 # def health(request):
 
