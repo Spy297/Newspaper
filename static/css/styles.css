@@ -1,0 +1,51 @@
+#header, #body {
+  width: 100%;
+}
+
+#header {
+  background-color: aquamarine;
+}
+#header #col2, #header #col1 {
+  padding: 0;
+}
+#header .navigation {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  width: 100%;
+}
+#header .navigation .dropdown .dropdown_menu {
+  position: absolute;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
+#header .navigation a {
+  display: inline-flex;
+  position: relative;
+  font-size: 1, 1cm;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+  color: black;
+}
+#header .navigation a:hover {
+  cursor: pointer;
+  color: blueviolet;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.right-sidebar {
+  display: block;
+}
+.right-sidebar button {
+  width: 33%;
+}
+.right-sidebar button:hover {
+  background-color: aqua;
+}
+
+/*# sourceMappingURL=styles.css.map */

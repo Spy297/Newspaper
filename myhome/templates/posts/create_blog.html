@@ -1,0 +1,18 @@
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+<h1>Create</h1>
+<div class="create">
+        <form method="POST" action = "{% url 'create_blog' %}" enctype='mutipart/form-data'>
+            {% csrf_token %}
+            <label for= "title" class="chu">Title:</label><br>
+            <input type= "text" id="title" name= "title" required><br>
+            <label for= "content" class="chu">Content:</label><br>
+            <textarea id= "content"  name= "content" required></textarea><br>
+            {{form.category}}
+            <input type = "submit" value = "Create">
+            <button onclick="goBack()"><a href="#"></a>Back</button>
+        </form>
+</div>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

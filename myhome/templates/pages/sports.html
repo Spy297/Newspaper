@@ -1,0 +1,22 @@
+
+ {% extends  'pages/base.html' %} 
+ {% load static %}
+
+ {% block category %}
+  {% for sports_post in sports_posts %}
+    <div class="row">
+      <div class="col col-xl-4">
+        {% if sports_post.image %}
+        <img src="{{ sports_post.image }}" alt="no_image" class="w-100">
+        {% else %} 
+        <img src="{% static 'images/no_image.png' %}" alt="no_image" class="w-100">
+        {% endif %}
+      </div>
+      <div class="col">
+        <a>{{ sports_post.title }} ({{ sports_post.author }})</a>
+        <p>{{ sports_post.category }}</p>
+        <p>{{ sports_post.description }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  {% endblock %}
