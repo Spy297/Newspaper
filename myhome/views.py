@@ -64,5 +64,6 @@ def sports(request):
 
 
 
-# def technology(request):
-
+def technology(request):
+    technology_posts = get_category_news("sports")
+    return render(request,"pages/sports.html",{"sports_posts":technology_posts})
