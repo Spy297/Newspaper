@@ -9,7 +9,7 @@
       <p>{{ post.description }}</p>
   </div>
 
-  <p>{{username}}</p>
+  <p style="font-style: italic;">{{username}}</p>
   <form method="post" action="{% url 'post_detail' category=post.category post_id=post.id %}" id="comment-form">
     {% csrf_token %}
     <div>
