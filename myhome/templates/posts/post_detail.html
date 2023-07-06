@@ -1,0 +1,51 @@
+{% extends  'pages/base.html' %} 
+{% load static %}
+
+{% block category %}
+  <div class="row">
+      <h2 >{{ post.title }} ({{ business_post.author }})</h2>
+      <img src="{{ post.image }}" alt="{{ post.image }}" id="post_detail_image">
+      <p class="post-category">Category: {{ post.category }}</p>
+      <p>{{ post.description }}</p>
+  </div>
+
+  <p>{{username}}</p>
+  <form method="post" action="{% url 'post_detail' category=post.category post_id=post.id %}" id="comment-form">
+    {% csrf_token %}
+    <div>
+      <textarea name="content" id="content" cols="30" rows="10"></textarea>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <p>{{ comments|length }} Bình luận </p>
+
+  {% for comment in comments %}
+  <p style="font-size: 10px;">{{comment.created_at}}</p>
+  <p>{{username}}: {{comment.content}}</p>  
+  <hr>
+  {% endfor %}
+ {% endblock %}
+
+{% block sidebar %} 
+<div class="row right-sidebar" >
+  <button class="recent-btn" id="{{post.category}}-recent-btn">Recent</button>
+  <button class="popular-btn" id="{{post.category}}-popular-btn">Popular</button>
+</div>
+{% for _ in "11111" %}
+<div class="row sidebar-row">
+  <div class="col d-flex align-items-center">
+    <img src="" alt="" class="w-100 sidebar-post-image">
+  </div>
+  <div class="col">
+    <div class="row">
+      <a class="sidebar-post-title" href="{% url 'post_detail' category=post.category post_id=post.id %}"></a>
+    </div>
+    <div class="row">
+      <p class="sidebar-post-description"></p>
+    </div>
+  </div>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}

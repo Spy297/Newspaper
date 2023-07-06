@@ -1,22 +1,45 @@
-
  {% extends  'pages/base.html' %} 
  {% load static %}
 
  {% block category %}
   {% for sports_post in sports_posts %}
-    <div class="row">
-      <div class="col col-xl-4">
+    <div class="row main-row">
+      <div class="col-xl-4 d-flex align-items-center">
         {% if sports_post.image %}
-        <img src="{{ sports_post.image }}" alt="no_image" class="w-100">
+        <img src="{{ sports_post.image }}" alt="no_image" class="w-100 main-post-image">
         {% else %} 
         <img src="{% static 'images/no_image.png' %}" alt="no_image" class="w-100">
         {% endif %}
       </div>
       <div class="col">
-        <a>{{ sports_post.title }} ({{ sports_post.author }})</a>
-        <p>{{ sports_post.category }}</p>
+        <a class="post-title" href="{% url 'post_detail' category=sports_post.category post_id=sports_post.id %}">{{ sports_post.title }} ({{ sports_post.author }})</a>
+        <p class="post-category">{{ sports_post.category }}</p>
         <p>{{ sports_post.description }}</p>
       </div>
     </div>
+    <hr>
     {% endfor %}
   {% endblock %}
+
+  {% block sidebar %} 
+  <div class="row right-sidebar" >
+    <button class="recent-btn" id="sports-recent-btn">Recent</button>
+    <button class="popular-btn" id="sports-popular-btn">Popular</button>
+  </div>
+  {% for _ in "12345" %}
+  <div class="row sidebar-row">
+    <div class="col d-flex align-items-center">
+      <img src="" alt="" class="w-100 sidebar-post-image">
+    </div>
+    <div class="col">
+      <div class="row">
+        <a class="sidebar-post-title"></a>
+      </div>
+      <div class="row">
+        <p class="sidebar-post-description"></p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  {% endfor %}
+ {% endblock %}

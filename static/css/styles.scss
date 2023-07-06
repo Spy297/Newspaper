@@ -4,8 +4,10 @@
 }
 //--------------------------------------------Header-----------------------------------------------
 #header{
-    background-color: aquamarine;
-
+    background-color: rgb(127, 180, 255);
+    #logo{
+        width: 100px;
+    }
     #col2,#col1{
         padding: 0;
     }
@@ -26,7 +28,7 @@
         a{
             display: inline-flex;
             position: relative;
-            font-size: 1,1cm;
+            font-size: 1.1vw;
             text-decoration: none;
             font-weight:500;
             margin-left: 40px;
@@ -37,6 +39,13 @@
 
             }
         }
+        p{
+            text-align: center;
+            font-size: 1.1vw;
+            color: orangered;
+            margin-left: 40px;
+
+        }
     
     }
 }
@@ -46,13 +55,46 @@ display: block;
 }
   
 //----------------------------------------------------CONTENT SECTION-------------------------------------------
+#body{
+    margin-top: 1.5vw;
+}
+#content{
+    height: 40px;
+    border: 50%;
+}
+.main-row{
+    &:hover{
+        cursor: pointer;
+    }
+}
 .right-sidebar{
-    display: block;
+    margin-bottom: 1.5vw;
     button{
-        width: 33%;
+        width: 50%;
     }
     button:hover{
         background-color: aqua;
     }
 }
 
+.post-title,.sidebar-post-title{
+    text-decoration: none;
+    color: rgb(43, 42, 42);
+    font-weight: bold;
+    &:hover{
+        color:skyblue;
+        cursor: pointer;
+
+    }
+}
+.post-category{
+    font-style: italic;
+    font-size: 13px;
+}
+#post_detail_image{
+    width: 700px;
+    margin: 0 auto;
+}
+h2{
+    text-align: center;
+}

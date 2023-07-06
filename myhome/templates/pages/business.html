@@ -1,0 +1,45 @@
+{% extends  'pages/base.html' %} 
+{% load static %}
+
+{% block category %}
+  {% for business_post in business_posts %}
+   <div class="row main-row">
+     <div class="col-xl-4 d-flex align-items-center">
+       {% if business_post.image %}
+       <img src="{{ business_post.image }}" alt="no_image" class="w-100 main-post-image">
+       {% else %} 
+       <img src="{% static 'images/no_image.png' %}" alt="no_image" class="w-100">
+       {% endif %}
+     </div>
+     <div class="col">
+       <a class="post-title" href="{% url 'post_detail' category=business_post.category post_id=business_post.id %}">{{ business_post.title }} ({{ business_post.author }})</a>
+       <p class="post-category">{{ business_post.category }}</p>
+       <p>{{ business_post.description }}</p>
+     </div>
+   </div>
+   <hr>
+   {% endfor %}
+ {% endblock %}
+
+ {% block sidebar %} 
+    <div class="row right-sidebar" >
+      <button class="recent-btn" id="business-recent-btn">Recent</button>
+      <button class="popular-btn" id="business-popular-btn">Popular</button>
+    </div>
+    {% for _ in "11111" %}
+    <div class="row sidebar-row">
+      <div class="col d-flex align-items-center">
+        <img src="" alt="" class="w-100 sidebar-post-image">
+      </div>
+      <div class="col">
+        <div class="row">
+          <a class="sidebar-post-title"></a>
+        </div>
+        <div class="row">
+          <p class="sidebar-post-description"></p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    {% endfor %}
+ {% endblock %}

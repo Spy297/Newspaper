@@ -111,6 +111,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+LOGIN_URL = 'login/'
 
 
 # Static files (CSS, JavaScript, Images)

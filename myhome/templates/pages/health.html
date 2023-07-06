@@ -2,19 +2,19 @@
 {% load static %}
 
 {% block category %}
- {% for general_post in general_posts %}
+ {% for health_post in health_posts %}
    <div class="row main-row">
      <div class="col-xl-4 d-flex align-items-center">
-       {% if general_post.image %}
-       <img src="{{ general_post.image }}" alt="no_image" class="w-100 main-post-image">
+       {% if health_post.image %}
+       <img src="{{ health_post.image }}" alt="no_image" class="w-100 main-post-image">
        {% else %} 
        <img src="{% static 'images/no_image.png' %}" alt="no_image" class="w-100">
        {% endif %}
      </div>
      <div class="col">
-       <a class="post-title" href="{% url 'post_detail' category=general_post.category post_id=general_post.id %}">{{ general_post.title }} ({{ general_post.author }})</a>
-       <p class="post-category">Category: {{ general_post.category }}</p>
-       <p>{{ general_post.description }}</p>
+       <a class="post-title" href="{% url 'post_detail' category=health_post.category post_id=health_post.id %}">{{ health_post.title }} ({{ health_post.author }})</a>
+       <p class="post-category">{{ health_post.category }}</p>
+       <p>{{ health_post.description }}</p>
      </div>
    </div>
    <hr>
@@ -23,8 +23,8 @@
 
  {% block sidebar %} 
   <div class="row right-sidebar" >
-    <button class="recent-btn" id="general-recent-btn">Recent</button>
-    <button class="popular-btn" id="general-popular-btn">Popular</button>
+    <button class="recent-btn" id="health-recent-btn">Recent</button>
+    <button class="popular-btn" id="health-popular-btn">Popular</button>
   </div>
   {% for _ in "12345" %}
   <div class="row sidebar-row">
@@ -35,8 +35,11 @@
       <div class="row">
         <a class="sidebar-post-title"></a>
       </div>
+      <div class="row">
+        <p class="sidebar-post-description"></p>
+      </div>
     </div>
   </div>
   <hr>
   {% endfor %}
- {% endblock %}
+  {% endblock %}

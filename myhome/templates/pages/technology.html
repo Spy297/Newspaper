@@ -1,16 +1,45 @@
-
 {% extends  'pages/base.html' %} 
+{% load static %}
+
 {% block category %}
- {% for blog in blogs %}
-   <div class="row">
-     <div class="col col-xl-4">
-       <p>image</p>
+ {% for technology_post in technology_posts %}
+   <div class="row main-row">
+     <div class="col-xl-4 d-flex align-items-center">
+       {% if technology_post.image %}
+       <img src="{{ technology_post.image }}" alt="no_image" class="w-100 main-post-image">
+       {% else %} 
+       <img src="{% static 'images/no_image.png' %}" alt="no_image" class="w-100">
+       {% endif %}
      </div>
      <div class="col">
-       <p id="p1">{{ blog.title }}</p>
-       <p>{{ blog.category }}</p>
-       <p>{{ blog.content }}</p>
+       <a class="post-title" href="{% url 'post_detail' category=technology_post.category post_id=technology_post.id %}">{{ technology_post.title }} ({{ technology_post.author }})</a>
+       <p class="post-category">{{ technology_post.category }}</p>
+       <p>{{ technology_post.description }}</p>
      </div>
    </div>
+   <hr>
    {% endfor %}
+ {% endblock %}
+
+ {% block sidebar %} 
+  <div class="row right-sidebar" >
+    <button class="recent-btn" id="technology-recent-btn">Recent</button>
+    <button class="popular-btn" id="technology-popular-btn">Popular</button>
+  </div>
+  {% for _ in "12345" %}
+  <div class="row sidebar-row">
+    <div class="col d-flex align-items-center">
+      <img src="" alt="" class="w-100 sidebar-post-image">
+    </div>
+    <div class="col">
+      <div class="row">
+        <a class="sidebar-post-title"></a>
+      </div>
+      <div class="row">
+        <p class="sidebar-post-description"></p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  {% endfor %}
  {% endblock %}
